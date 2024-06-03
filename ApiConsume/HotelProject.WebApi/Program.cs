@@ -3,6 +3,9 @@ using HotelProject.BusinessLayer.Concrete;
 using HotelProject.DataAccessLayer.Abstract;
 using HotelProject.DataAccessLayer.Concrete;
 using HotelProject.DataAccessLayer.EntityFramework;
+using HotelProject.WebApi.Mapping;
+using System.Reflection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +29,9 @@ builder.Services.AddScoped<ISubscribeService, SubscribeManager>();
 
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
 
 
 //Cors methodu Api işlemlerinde bir Apinin başka kaynaklar tarafından consume edilmesini yani tüketilmesini sağlayan method.app.UseCors olarak aşağıda da tanımlanmalıdır.
