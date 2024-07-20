@@ -1,5 +1,4 @@
-﻿@model  CreateContactDto
-
+﻿@model CreateContactDto
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -45,23 +44,17 @@
                                     <label for="email">Mail Adresiniz</label>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="email" placeholder="Mail Adresiniz" name="Subject">
-                                    <label for="text">Konu</label>
-                                </div>
-                            </div>
-                      @*       <div class="col-12">
+                            <div class="col-12">
                                 <div class="form-floating">
                                     @Html.DropDownListFor(x => x.MessageCategoryID, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
                                     <label for="subject">Konuyu Seçiniz</label>
                                 </div>
                                 <br />
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Kou Başlığı" name="Subject">
+                                    <input type="text" class="form-control" id="subject" placeholder="Konu Başlığı" name="Subject">
                                     <label for="subject">Konu Başlığını Yazınız</label>
                                 </div>
-                            </div> *@
+                            </div>
                             <div class="col-12">
                                 <div class="form-floating">
                                     <textarea class="form-control" placeholder="Mesajnızı Buraya Yazabilirsiniz" name="Message" id="message" style="height: 150px"></textarea>

@@ -47,11 +47,11 @@ namespace HotelProject.WebApi.Controllers
             return Ok(values);
         }
 
-        //[HttpGet("GetSendMessageCount")]
-        //public IActionResult GetSendMessageCount()
-        //{
-        //    return Ok(_sendMessageService.TGetSendMessageCount());
-        //}
+        [HttpGet("GetSendMessageCount")]
+        public IActionResult GetSendMessageCount()
+        {
+            return Ok(_sendMessageService.TGetSendMessageCount());
+        }
 
     }
 }

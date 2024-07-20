@@ -4,6 +4,8 @@ using HotelProject.DataAccessLayer.Concrete;
 using HotelProject.EntityLayer.Concrete;
 using HotelProject.WebUI.Dtos.GuestDto;
 using HotelProject.WebUI.ValidationRules.GuestValidationRules;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +20,23 @@ builder.Services.AddTransient<IValidator<CreateGuestDto>, CreateGuestValidator>(
 builder.Services.AddTransient<IValidator<UpdateGuestDto>, UpdateGuestValidator>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddMvc(config =>
 
+//Proje seviyesinde Authorize
+{
+    var policy = new AuthorizationPolicyBuilder()
+    .RequireAuthenticatedUser()
+    .Build();
+    config.Filters.Add(new AuthorizeFilter(policy));
+});
+
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(10); //10 dakika gecince cookie düşsün yeniden authentica olsun 
+    options.LoginPath = "/Login/Index/"; // yönlendirme yapılacak sayfa 
+});
 
 var app = builder.Build();
 
@@ -30,8 +48,13 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+//Aranılan sayfa olmayınca çıkacak error page
+app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "?code={0}");
 app.UseHttpsRedirection();
+
+
 app.UseStaticFiles();
+app.UseAuthentication();// Proje genelinde authentica
 
 app.UseRouting();
 
