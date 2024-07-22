@@ -7,9 +7,11 @@ Bu projede MSSQL ilişkili tablolar,Identity kütüphanesi ile giriş yapma öze
  <li> Asp.Net Core 6 </li>
  <li> Asp.Net Core Web API</li>
  <li> MSSQL </li>
- <li> Rich Text Editör </li>
- <li> Folder Structure </li>
- <li> Kaggle Dataset </li>
+ <li> Bootstrap </li>
+ <li> RapidApi </li>
+ <li> FluentValidation </li>
+ <li> Identity </li>
+ <li> Auto Mapper </li>
  <li> Json Web Token </li>
  <li> Postman </li>
  <li> Swagger </li>
