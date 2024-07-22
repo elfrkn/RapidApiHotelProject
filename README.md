@@ -10,6 +10,9 @@ Bu projede MSSQL ilişkili tablolar,Identity kütüphanesi ile giriş yapma öze
  <li> Rich Text Editör </li>
  <li> Folder Structure </li>
  <li> Kaggle Dataset </li>
+ <li> Json Web Token </li>
+ <li> Postman </li>
+ <li> Swagger </li>
 </ul>
 
 
