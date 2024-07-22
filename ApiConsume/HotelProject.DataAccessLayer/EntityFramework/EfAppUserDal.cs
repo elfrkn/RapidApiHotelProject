@@ -2,6 +2,7 @@
 using HotelProject.DataAccessLayer.Concrete;
 using HotelProject.DataAccessLayer.Repositories;
 using HotelProject.EntityLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,17 +20,22 @@ namespace HotelProject.DataAccessLayer.EntityFramework
 
         public int AppUserCount()
         {
-            throw new NotImplementedException();
+            var context = new Context();
+            var value = context.Users.Count();
+            return value;
         }
 
         public List<AppUser> UserListWithWorkLocation()
         {
-            throw new NotImplementedException();
+            var context =new Context();
+            return context.Users.Include(x => x.WorkLocation).ToList();
         }
 
         public List<AppUser> UsersListWithWorkLocations()
         {
-            throw new NotImplementedException();
+            var context = new Context();
+            var values = context.Users.ToList();
+            return values.ToList();
         }
     }
 }
